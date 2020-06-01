@@ -1,0 +1,22 @@
+div{
+	position: relative;
+	border: 1px solid red;
+	line-height: 2em;
+	font-family: 'Roboto', sans-serif;
+}
+.fa-trash{
+	color:#911156;
+}
+.btnDelete{
+	position: absolute;
+	bottom:0; right: 20px;
+}
+.btnEdit{
+	position: absolute;
+	bottom:0; right: 50px
+
+}
+
+a.activeLink{
+	color: red;
+}
