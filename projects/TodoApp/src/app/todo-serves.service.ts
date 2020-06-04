@@ -18,7 +18,13 @@ export class TodoServesService {
   todos: TodoInterface[] = [];
   todosURL = "http://my-json-server.typicode.com/gdoktorov/json-fake-server/todos";
   
-  constructor( private http:HttpClient ) {}
+  constructor( private http:HttpClient ) {
+    this.fetchTodos().subscribe( data => {
+      data.forEach(element => {
+        this.todos.push(element);
+      });      
+    })
+  }
 
   fetchTodos():Observable<TodoInterface[]> {
     return this.http.get<TodoInterface[]>(this.todosURL);
