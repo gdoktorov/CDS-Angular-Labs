@@ -3,7 +3,7 @@
 		<li *ngFor="let todo of todos; index as i"
 			[class.completed] = "todo.completed"
 			>
-			<app-todo-item [todo]="todo" [todoIndex]="i">				
+			<app-todo-item (refreshList)="refreshList($event)" [todo]="todo" [todoIndex]="i">				
 			</app-todo-item>
 		</li>
 	</ul>

@@ -1,6 +1,4 @@
-import { Component, OnInit} from '@angular/core';
-import {TodoServesService} from '../../todo-serves.service'
-import {TodoInterface} from "../../todo-serves.service";
+import { Component, OnInit, Input, Output,EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,10 +6,17 @@ import {TodoInterface} from "../../todo-serves.service";
   styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent {
-  todos: TodoInterface[];
+  @Input('todosData') todos;
 
-  constructor(private _todoServesService:TodoServesService){
-    this.todos = this._todoServesService.getTodos();
+  @Output() listRefresh = new EventEmitter();
+
+  constructor(){
   }
 
+  ngOnInit() {}
+
+  refreshList(index){
+    this.todos.splice(index,1);
+    this.listRefresh.emit(this.todos);
+  }
 }
