@@ -49,6 +49,10 @@ export class TodoServesService {
   removeTodo(todoID) {
     return this.api.deleteTodo(todoID);
   }
+  updateTodo(todoID,newTodo) {
+    // this.todos[todoIndex].completed = !this.todos[todoIndex].completed;
+    return this.api.updateTodo(todoID,newTodo);
+  }
 
   addTodo(newTodo) {
     return this.api.createTodo(newTodo);

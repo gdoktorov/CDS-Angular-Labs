@@ -46,5 +46,11 @@ export class ApiService {
       catchError(this.handleHTTPErrors)
       );
   }
+
+  updateTodo(todoID,newTodo) {
+    return this.http.put<TodoInterface[]>(this.todosURL+"/todos/"+todoID,newTodo).pipe(
+      catchError(this.handleHTTPErrors)
+      );
+  }
   
 }

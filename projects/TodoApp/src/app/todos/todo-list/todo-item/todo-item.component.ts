@@ -20,7 +20,8 @@ export class TodoItemComponent {
     this.refreshList.emit(this.todoIndex);
   }
 
-  toggleComplete(todoIndex){
-    this._todoServes.toggleComplete(todoIndex)
+  toggleComplete(id){
+    // this.todos[todoIndex].completed = !this.todos[todoIndex].completed;
+    this._todoServes.updateTodo(id,this.todo).subscribe()
   }
 }
